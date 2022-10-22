@@ -17,7 +17,7 @@ class AppClient {
     });
   }
 
-  initToken() {
+  clearToken() {
     delete this.axios.defaults.headers.common['Authorization'];
   }
 
@@ -37,7 +37,7 @@ class AppClient {
     let p = new URLSearchParams();
     p.append('user_address', address);
     p.append('user_signature', signature);
-    console.log("AUTHING",p);
+    console.log("AΩUTHING",p);
 
     return this.axios.post('/auth/authorize', p);
   }
@@ -54,7 +54,8 @@ class AppClient {
     p.append('message_subject', params.messageSubject);
     p.append('message_body', params.messageBody);
     p.append('user_address', params.userAddress);
-    console.log("UPDATING",p);
+    console.log("ADDING",address,params);
+    console.log("UPDATING",address,p);
     return this.axios.put('/api/users/' + address, p);
   }
 

@@ -28,7 +28,7 @@ func GetHandler(c *server.Context) error {
 
 func UpdateHandler(c *server.Context) error {
 
-	addressHex := c.Param("user_address")
+	addressHex := c.FormValue("user_address")
 	firstName := c.FormValue("user_first_name")
 	lastName := c.FormValue("user_last_name")
 	messageToAddress := c.FormValue("message_to_address")

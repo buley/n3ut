@@ -23,8 +23,8 @@ new Vue({
   data: {
     isLoginButtonDisabled: true,
     isObservationEnabled: false,
-    user: {},
-    message: {},
+    user: { userAddress: null, userFirstName: null, userLastName: null },
+    message: { messageToAddress: null, messageBody: null, messageSubject: null },
   },
   created: async function() {
     try {
@@ -39,14 +39,20 @@ new Vue({
   methods: {
     observe: async function() {
       try {
-        setTimeout(this.observe, 1000);
+
+        setTimeout(function(that) {
+          return function() {
+            return that.observe.apply(that, arguments);
+          };
+        }(this), 1000);
 
         if (!this.isObservationEnabled) {
           return;
         }
 
         let address = await getAddress();
-        if (address === this.user.address) {
+        console.log("COMPARE",address, this._data, this.user);
+        if (address === this.user.userAddress) {
           return
         }
         else {
@@ -80,9 +86,12 @@ new Vue({
 
         appClient.setToken(authorizeResult.token);
 
-        this.message = {};
-        this.user = await appClient.getUser(address);
+        let that = this;
+        let user = await appClient.getUser(address)
+
+        this.user = user;
         this.isObservationEnabled = true;
+
       }
       catch (e) {
         this.handleError(e);
@@ -90,13 +99,14 @@ new Vue({
     },
     updateUser: async function() {
       try {
-        await appClient.updateUser(this.user.address, {
-          userAddress: this.user.address,
-          userFirstName: this.user.firstName,
-          userLastName: this.user.lastName,
-          messageToAddress: this.message.toAddress,
-          messageSubject: this.message.subject,
-          messageBody: this.message.body,
+        console.log("YEAH?",this);
+        await appClient.updateUser(this.user.userAddress, {
+          userAddress: this.user.userAddress,
+          userFirstName: this.user.userFirstName,
+          userLastName: this.user.userLastName,
+          messageToAddress: this.message.messageToAddress,
+          messageSubject: this.message.messageSubject,
+          messageBody: this.message.messageBody,
         });
         this.info('Success');
       }
@@ -149,11 +159,14 @@ new Vue({
         throw e;
       }
     },
+    clear: function() {
+      appClient.clearToken();
+    },
     logout: function() {
-      appClient.initToken();
+      this.clear();
       this.isObservationEnabled = false;
-      this.user                 = null;
-      this.message              = null;
+      this.user                 = { userAddress: null, userFirstName: null, userLastName: null };
+      this.message              = { messageToAddress: null, messageBody: null, messageSubject: null };
     },
   },
 });
