@@ -1,4 +1,4 @@
-module github.com/m0t0k1ch1/metamask-login-sample
+module github.com/buley/n3ut
 
 require (
 	github.com/btcsuite/btcd v0.20.1-beta // indirect

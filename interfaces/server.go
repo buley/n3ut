@@ -1,13 +1,13 @@
 package interfaces
 
 import (
-	"github.com/m0t0k1ch1/metamask-login-sample/application"
-	appAuth "github.com/m0t0k1ch1/metamask-login-sample/application/auth"
-	appUser "github.com/m0t0k1ch1/metamask-login-sample/application/user"
-	"github.com/m0t0k1ch1/metamask-login-sample/infrastructure/auth/metamask"
-	cacheUser "github.com/m0t0k1ch1/metamask-login-sample/infrastructure/cache/user"
-	"github.com/m0t0k1ch1/metamask-login-sample/interfaces/server"
-	"github.com/m0t0k1ch1/metamask-login-sample/interfaces/server/handler"
+	"github.com/buley/n3ut/application"
+	appAuth "github.com/buley/n3ut/application/auth"
+	appUser "github.com/buley/n3ut/application/user"
+	"github.com/buley/n3ut/infrastructure/auth/metamask"
+	cacheUser "github.com/buley/n3ut/infrastructure/cache/user"
+	"github.com/buley/n3ut/interfaces/server"
+	"github.com/buley/n3ut/interfaces/server/handler"
 )
 
 func NewServer(conf *server.Config) *server.Server {

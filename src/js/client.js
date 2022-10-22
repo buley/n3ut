@@ -28,6 +28,7 @@ class AppClient {
   challenge(address) {
     let p = new URLSearchParams();
     p.append('address', address);
+    console.log("CHALLENING",p);
 
     return this.axios.post('/auth/challenge', p);
   }
@@ -36,6 +37,7 @@ class AppClient {
     let p = new URLSearchParams();
     p.append('address', address);
     p.append('signature', signature);
+    console.log("AUTHING",p);
 
     return this.axios.post('/auth/authorize', p);
   }
@@ -47,7 +49,7 @@ class AppClient {
   updateUser(address, params) {
     let p = new URLSearchParams();
     p.append('name', params.name);
-
+    console.log("UPDATING",p);
     return this.axios.put('/api/users/' + address, p);
   }
 

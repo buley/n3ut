@@ -80,6 +80,14 @@ new Vue({
         appClient.setToken(authorizeResult.token);
 
         this.user                 = await appClient.getUser(address);
+        appClient.getUser(address).then(function(d) {
+          console.log("ACCOUNTS!!!",d);
+        })
+        this.message = {
+          To: 'xTO',
+          Body: 'MessageToSend'
+        };
+
         this.isObservationEnabled = true;
       }
       catch (e) {
@@ -147,6 +155,7 @@ new Vue({
 
       this.isObservationEnabled = false;
       this.user                 = null;
+      this.message              = null;
     },
   },
 });

@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/m0t0k1ch1/metamask-login-sample/domain"
+	"github.com/buley/n3ut/domain"
 )
 
 type Server struct {

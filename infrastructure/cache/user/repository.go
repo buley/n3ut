@@ -3,9 +3,9 @@ package user
 import (
 	"context"
 
-	"github.com/m0t0k1ch1/metamask-login-sample/domain"
-	"github.com/m0t0k1ch1/metamask-login-sample/domain/user"
-	"github.com/m0t0k1ch1/metamask-login-sample/library/kvs"
+	"github.com/buley/n3ut/domain"
+	"github.com/buley/n3ut/domain/user"
+	"github.com/buley/n3ut/library/kvs"
 )
 
 type repository struct{}

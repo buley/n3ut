@@ -8,8 +8,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/m0t0k1ch1/metamask-login-sample/interfaces"
-	"github.com/m0t0k1ch1/metamask-login-sample/interfaces/server"
+	"github.com/buley/n3ut/interfaces"
+	"github.com/buley/n3ut/interfaces/server"
 )
 
 const (

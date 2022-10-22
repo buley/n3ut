@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"github.com/m0t0k1ch1/metamask-login-sample/application/auth"
-	"github.com/m0t0k1ch1/metamask-login-sample/interfaces/server"
+	"github.com/buley/n3ut/application/auth"
+	"github.com/buley/n3ut/interfaces/server"
 )
 
 func SetUp(cntl *server.Controller) {

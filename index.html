@@ -3,22 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
-    <title>metamask-login-sample</title>
-    <link rel="icon" href="./src/img/favicon.ico">
+    <title>N3UT</title>
+    <link rel="icon" href="./src/img/FavIcon.png">
   </head>
   <body>
     <div id="app">
       <header>
-        <h1>metamask-login-sample</h1>
+        <h1>N3UT</h1>
       </header>
       <main>
         <template v-if="user === null">
           <el-button type="primary" v-bind:disabled="isLoginButtonDisabled" @click="login">Login with MetaMask</el-button>
         </template>
         <template v-else>
-          <el-form :model="user">
+          <el-form :model="message">
             <el-form-item label="From Address">
-              <el-input v-model="message.from" :disabled="true"></el-input>
+              <el-input v-model="user.address" :disabled="true"></el-input>
+            </el-form-item>
+            <el-form-item label="From Name">
+              <el-input v-model="user.name"></el-input>
             </el-form-item>
             <el-form-item label="To Address">
               <el-input v-model="message.to"></el-input>
@@ -42,7 +45,10 @@
         </template>
       </main>
       <footer>
-        Hello, Crypto
+        <a href="https://neutrals.io/disclaimers">Disclaimers</a>&nbsp;|
+        <a href="https://neutrals.io/terms">Terms of Service</a>&nbsp;|
+        <a href="https://neutrals.io/cookeis">Cookies Policy</a>&nbsp;|
+        <a href="https://neutrals.io/privacy">Privacy Policy</a>
       </footer>
     </div>
   </body>

@@ -5,8 +5,8 @@ import (
 
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
-	"github.com/m0t0k1ch1/metamask-login-sample/domain"
-	"github.com/m0t0k1ch1/metamask-login-sample/infrastructure/auth/metamask"
+	"github.com/buley/n3ut/domain"
+	"github.com/buley/n3ut/infrastructure/auth/metamask"
 )
 
 type Context struct {

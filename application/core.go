@@ -1,8 +1,8 @@
 package application
 
 import (
-	"github.com/m0t0k1ch1/metamask-login-sample/domain/auth"
-	"github.com/m0t0k1ch1/metamask-login-sample/domain/user"
+	"github.com/buley/n3ut/domain/auth"
+	"github.com/buley/n3ut/domain/user"
 )
 
 type Core struct {

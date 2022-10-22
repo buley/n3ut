@@ -3,8 +3,8 @@ package auth
 import (
 	"context"
 
-	"github.com/m0t0k1ch1/metamask-login-sample/application"
-	"github.com/m0t0k1ch1/metamask-login-sample/domain"
+	"github.com/buley/n3ut/application"
+	"github.com/buley/n3ut/domain"
 )
 
 type Application interface {

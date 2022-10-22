@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/labstack/gommon/log"
-	"github.com/m0t0k1ch1/metamask-login-sample/application"
+	"github.com/buley/n3ut/application"
 )
 
 var (

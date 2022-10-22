@@ -1,6 +1,6 @@
 package auth
 
-import "github.com/m0t0k1ch1/metamask-login-sample/domain"
+import "github.com/buley/n3ut/domain"
 
 type Service interface {
 	SetUpChallenge(u *domain.User) error

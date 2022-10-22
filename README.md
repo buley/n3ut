@@ -1,6 +1,6 @@
 # n3ut
 
-A blockchain-based mediation tool built on Echo and Vue.js, and based on [@m0t0k1ch1's login example][https://github.com/m0t0k1ch1/metamask-login-sample/].
+A blockchain-based mediation tool built on Echo and Vue.js, and based on [@m0t0k1ch1's login example][https://github.com/buley/n3ut/].
 
 ## Requirements
 

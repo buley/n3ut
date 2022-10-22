@@ -7,7 +7,7 @@ type Config struct {
 }
 
 type AuthConfig struct {
-	Secret                     string `json:"secret"`
+	Secret                     string `json:"shh"`
 	TokenExpiryDurationSeconds int    `json:"token_expiry_duration_seconds"`
 }
 
