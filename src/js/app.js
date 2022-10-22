@@ -24,16 +24,23 @@ new Vue({
     isLoginButtonDisabled: true,
     isObservationEnabled: false,
     user: null,
+    data: {
+      message: {
+        toAddress: null,
+        body: null,
+        subject: null,
+      },
+      user: {
+        firstName: null,
+        lastName: null,
+      },
+    }
   },
   created: async function() {
     try {
       await initWeb3();
       this.isLoginButtonDisabled = false;
       this.observe();
-      this.data = {
-        message: {},
-        user: {}
-      };
     }
     catch (e) {
       this.handleError(e);
@@ -95,10 +102,9 @@ new Vue({
     },
     updateUser: async function() {
       try {
-        console.log("USER",this.user.firstName, this.user.lastName, "MESSAGE",this.message, "DATA",this.data);
         await appClient.updateUser(this.user.address, {
-          firstName: this.user.firstName,
-          lastName: this.user.lastName,
+          firstName: this.data.user.firstName,
+          lastName: this.data.user.lastName,
         });
         this.info('Success');
       }
