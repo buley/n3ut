@@ -20,17 +20,26 @@ type UpdateUserInput struct {
 	FirstName string
 	LastName  string
 	Message   struct {
-		ToAddress      string
-		MessageSubject string
-		MessageBody    string
+		ToAddress string
+		Subject   string
+		Body      string
 	}
 }
 
-func NewUpdateUserInput(addressHex, lastName string, firstName string) *UpdateUserInput {
+func NewUpdateUserInput(addressHex, lastName string, firstName string, toAddress string, subject string, body string) *UpdateUserInput {
 	return &UpdateUserInput{
 		AddressHexInput: application.NewAddressHexInput(addressHex),
 		FirstName:       firstName,
 		LastName:        lastName,
+		Message: struct {
+			ToAddress string
+			Subject   string
+			Body      string
+		}(NeutralMessage{
+			ToAddress: toAddress,
+			Subject:   subject,
+			Body:      body,
+		}),
 	}
 }
 

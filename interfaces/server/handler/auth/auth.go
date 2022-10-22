@@ -11,7 +11,7 @@ func SetUp(cntl *server.Controller) {
 }
 
 func ChallengeHandler(c *server.Context) error {
-	addressHex := c.FormValue("address")
+	addressHex := c.FormValue("user_address")
 
 	ctx := c.Request().Context()
 	in := auth.NewChallengeInput(addressHex)
@@ -25,8 +25,8 @@ func ChallengeHandler(c *server.Context) error {
 }
 
 func AuthorizeHandler(c *server.Context) error {
-	addressHex := c.FormValue("address")
-	sigHex := c.FormValue("signature")
+	addressHex := c.FormValue("user_address")
+	sigHex := c.FormValue("user_signature")
 
 	ctx := c.Request().Context()
 	in := auth.NewAuthorizeInput(addressHex, sigHex)

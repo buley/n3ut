@@ -27,12 +27,16 @@ func GetHandler(c *server.Context) error {
 }
 
 func UpdateHandler(c *server.Context) error {
-	addressHex := c.Param("address")
-	firstName := c.FormValue("firstName")
-	lastName := c.FormValue("lastName")
+
+	addressHex := c.Param("user_address")
+	firstName := c.FormValue("user_first_name")
+	lastName := c.FormValue("user_last_name")
+	messageToAddress := c.FormValue("message_to_address")
+	messageBody := c.FormValue("message_body")
+	messageSubject := c.FormValue("message_subject")
 
 	ctx := c.Request().Context()
-	in := user.NewUpdateUserInput(addressHex, lastName, firstName)
+	in := user.NewUpdateUserInput(addressHex, lastName, firstName, messageToAddress, messageBody, messageSubject)
 
 	out, err := c.Apps.User.UpdateUser(ctx, in)
 	if err != nil {

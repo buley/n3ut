@@ -23,18 +23,8 @@ new Vue({
   data: {
     isLoginButtonDisabled: true,
     isObservationEnabled: false,
-    user: null,
-    data: {
-      message: {
-        toAddress: null,
-        body: null,
-        subject: null,
-      },
-      user: {
-        firstName: null,
-        lastName: null,
-      },
-    }
+    user: {},
+    message: {},
   },
   created: async function() {
     try {
@@ -90,10 +80,8 @@ new Vue({
 
         appClient.setToken(authorizeResult.token);
 
-        this.user                 = await appClient.getUser(address);
-        appClient.getUser(address).then(function(d) {
-          console.log("ACCOUNTS!!!",d);
-        })
+        this.message = {};
+        this.user = await appClient.getUser(address);
         this.isObservationEnabled = true;
       }
       catch (e) {
@@ -103,8 +91,12 @@ new Vue({
     updateUser: async function() {
       try {
         await appClient.updateUser(this.user.address, {
-          firstName: this.data.user.firstName,
-          lastName: this.data.user.lastName,
+          userAddress: this.user.address,
+          userFirstName: this.user.firstName,
+          userLastName: this.user.lastName,
+          messageToAddress: this.message.toAddress,
+          messageSubject: this.message.subject,
+          messageBody: this.message.body,
         });
         this.info('Success');
       }
@@ -159,7 +151,6 @@ new Vue({
     },
     logout: function() {
       appClient.initToken();
-
       this.isObservationEnabled = false;
       this.user                 = null;
       this.message              = null;
@@ -205,7 +196,6 @@ function initWeb3() {
 function getAddress() {
   return new Promise((resolve, reject) => {
     web3.eth.getAccounts().then((accounts) => {
-      console.log("ACCOUNTS",accounts);
       if (accounts.length <= 0) {
         return resolve(null);
       }

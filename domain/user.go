@@ -11,6 +11,13 @@ type User struct {
 	Challenge string
 }
 
+type UserMessage struct {
+	FirstName string
+	LastName  string
+	Address   Address
+	Challenge string
+}
+
 func NewUser(address Address, lastName string, firstName string) *User {
 	return &User{
 		FirstName: firstName,
