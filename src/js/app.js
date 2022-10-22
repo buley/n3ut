@@ -97,6 +97,13 @@ new Vue({
         this.handleError(e);
       }
     },
+    sendMessage: async function (toAddress, subject, body) {
+      console.log("sendMessage",this.message.messageToAddress, this.message.messageSubject, this.message.messageBody);
+    },
+    clearMessage: async function (toAddress, subject, body) {
+      console.log("CLEAR MESSAGE");
+      this.message = { messageToAddress: null, messageBody: null, messageSubject: null };
+    },
     updateUser: async function() {
       try {
         console.log("YEAH?",this);
@@ -125,6 +132,7 @@ new Vue({
         this.handleError(e);
       }
     },
+
     info: function(msg) {
       this.$message({
         showClose: true,

@@ -27,6 +27,11 @@
               <el-form-item label="From Last Name">
                 <el-input v-model="user.userLastName"></el-input>
               </el-form-item>
+              <el-form-item class="buttons">
+                <el-button type="primary" @click="updateUser">Save</el-button>
+                <el-button type="danger" @click="deleteUser">Delete</el-button>
+                <el-button @click="logout">Logout</el-button>
+              </el-form-item>
             </section>
             <section v-model="message">
               <el-form-item label="To Address">
@@ -45,12 +50,11 @@
                           placeholder="Your message body."
                 ></el-input>
               </el-form-item>
+              <el-form-item class="buttons">
+                <el-button type="primary" @click="sendMessage">Send</el-button>
+                <el-button type="danger" @click="clearMessage">Clear</el-button>
+              </el-form-item>
             </section>
-            <el-form-item class="buttons">
-              <el-button type="primary" @click="updateUser">Save</el-button>
-              <el-button type="danger" @click="deleteUser">Delete</el-button>
-              <el-button @click="logout">Logout</el-button>
-            </el-form-item>
           </el-form>
         </template>
       </main>
