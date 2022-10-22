@@ -37,7 +37,7 @@ func (app *applicationImpl) Challenge(ctx context.Context, in *ChallengeInput) (
 			return nil, err
 		}
 	case domain.ErrUserNotFound:
-		u = domain.NewUser("", address)
+		u = domain.NewUser(address, "", "")
 		if err := app.Services.Auth.SetUpChallenge(u); err != nil {
 			return nil, err
 		}

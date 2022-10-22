@@ -30,6 +30,7 @@ new Vue({
       await initWeb3();
       this.isLoginButtonDisabled = false;
       this.observe();
+      this.data = {};
     }
     catch (e) {
       this.handleError(e);
@@ -65,12 +66,12 @@ new Vue({
 
         let address = await getAddress();
         if (address === null) {
-          throw new AppError('Please unlock MetaMask account');
+          throw new AppError('Please unlock your MetaMask account.');
         }
 
         let networkId = await getNetworkId();
         if (networkId !== 5) {
-          throw new AppError('Please connect MetaMask to Goerli Test Network.');
+          throw new AppError('Please connect MetaMask to the Goerli Test Network.');
         }
 
         let challengeResult = await appClient.challenge(address);
@@ -84,8 +85,9 @@ new Vue({
           console.log("ACCOUNTS!!!",d);
         })
         this.message = {
-          To: 'xTO',
-          Body: 'MessageToSend'
+          to: 'AddyToSend',
+          subject: 'MessageSubject',
+          body: 'MessageBody'
         };
 
         this.isObservationEnabled = true;
@@ -96,8 +98,10 @@ new Vue({
     },
     updateUser: async function() {
       try {
+        console.log("USER",this.user.firstName, this.user.lastName, "MESSAGE",this.message, "DATA",this.data);
         await appClient.updateUser(this.user.address, {
-          name: this.user.name,
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
         });
         this.info('Success');
       }

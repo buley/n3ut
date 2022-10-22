@@ -41,14 +41,16 @@ func (app *applicationImpl) UpdateUser(ctx context.Context, in *UpdateUserInput)
 	}
 
 	address := in.Address()
-	name := in.Name
+	firstName := in.FirstName
+	lastName := in.LastName
 
 	u, err := app.Repositories.User.Get(ctx, address)
 	if err != nil {
 		return nil, err
 	}
 
-	u.Name = name
+	u.FirstName = firstName
+	u.LastName = lastName
 
 	if err := app.Repositories.User.Update(ctx, u); err != nil {
 		return nil, err

@@ -17,13 +17,20 @@ func NewGetUserInput(addressHex string) *GetUserInput {
 
 type UpdateUserInput struct {
 	*application.AddressHexInput
-	Name string
+	FirstName string
+	LastName  string
+	Message   struct {
+		ToAddress      string
+		MessageSubject string
+		MessageBody    string
+	}
 }
 
-func NewUpdateUserInput(addressHex, name string) *UpdateUserInput {
+func NewUpdateUserInput(addressHex, lastName string, firstName string) *UpdateUserInput {
 	return &UpdateUserInput{
 		AddressHexInput: application.NewAddressHexInput(addressHex),
-		Name:            name,
+		FirstName:       firstName,
+		LastName:        lastName,
 	}
 }
 
@@ -31,7 +38,10 @@ func (in *UpdateUserInput) Validate() error {
 	if err := in.AddressHexInput.Validate(); err != nil {
 		return err
 	}
-	if err := domain.ValidateUserName(in.Name); err != nil {
+	if err := domain.ValidateUserFirstName(in.FirstName); err != nil {
+		return err
+	}
+	if err := domain.ValidateUserLastName(in.LastName); err != nil {
 		return err
 	}
 	return nil

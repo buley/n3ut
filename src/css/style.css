@@ -13,8 +13,9 @@ body {
 }
 
 header {
-    height: 60px;
     background-color: #ffffff;
+    color: #343a4a;
+    min-height: 60px;
     text-align: center;
 }
 
@@ -51,4 +52,10 @@ footer a {
     color: #ffffff;
     font-size: 12px;
     line-height: 60px;
+}
+
+el-button--primary {
+    color: #e6dfda;
+    background-color: #343a4a;
+    border-color: #343a4a;
 }

@@ -3,13 +3,15 @@ package user
 import "github.com/buley/n3ut/domain"
 
 type GetUserOutput struct {
-	Name       string `json:"name"`
+	FirstName  string `json:"firstName"`
+	LastName   string `json:"lastName"`
 	AddressHex string `json:"address"`
 }
 
 func NewGetUserOutput(u *domain.User) *GetUserOutput {
 	return &GetUserOutput{
-		Name:       u.Name,
+		FirstName:  u.FirstName,
+		LastName:   u.LastName,
 		AddressHex: u.Address.Hex(),
 	}
 }

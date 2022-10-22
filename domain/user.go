@@ -5,20 +5,33 @@ import (
 )
 
 type User struct {
-	Name      string
+	FirstName string
+	LastName  string
 	Address   Address
 	Challenge string
 }
 
-func NewUser(name string, address Address) *User {
+func NewUser(address Address, lastName string, firstName string) *User {
 	return &User{
-		Name:    name,
-		Address: address,
+		FirstName: firstName,
+		Address:   address,
+		LastName:  lastName,
 	}
 }
 
-func ValidateUserName(name string) error {
-	l := utf8.RuneCountInString(name)
+func ValidateUserFirstName(firstName string) error {
+	l := utf8.RuneCountInString(firstName)
+	if l < UserNameLengthMin {
+		return ErrTooShortUserName
+	}
+	if l > UserNameLengthMax {
+		return ErrTooLongUserName
+	}
+	return nil
+}
+
+func ValidateUserLastName(lastName string) error {
+	l := utf8.RuneCountInString(lastName)
 	if l < UserNameLengthMin {
 		return ErrTooShortUserName
 	}

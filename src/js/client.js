@@ -48,7 +48,8 @@ class AppClient {
 
   updateUser(address, params) {
     let p = new URLSearchParams();
-    p.append('name', params.name);
+    p.append('first_name', params.first_name);
+    p.append('last_name', params.last_name);
     console.log("UPDATING",p);
     return this.axios.put('/api/users/' + address, p);
   }
