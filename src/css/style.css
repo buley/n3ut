@@ -1,5 +1,7 @@
 body {
     display: flex;
+    background-color: #e6dfda;
+    color: #343a4a;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 
@@ -12,12 +14,12 @@ body {
 
 header {
     height: 60px;
-    background-color: #333;
+    background-color: #ffffff;
     text-align: center;
 }
 
 header h1 {
-    color: #fff;
+    color: #343a4a;
     font-weight: bold;
     line-height: 60px;
 }
@@ -41,10 +43,12 @@ footer {
     margin-top: auto;
     height: 60px;
     text-align: center;
+    background-color: #343a4a;
+    color: #e6dfda;
 }
 
 footer a {
-    color: #ccc;
+    color: #ffffff;
     font-size: 12px;
     line-height: 60px;
 }
