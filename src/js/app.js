@@ -30,7 +30,10 @@ new Vue({
       await initWeb3();
       this.isLoginButtonDisabled = false;
       this.observe();
-      this.data = {};
+      this.data = {
+        message: {},
+        user: {}
+      };
     }
     catch (e) {
       this.handleError(e);
@@ -84,12 +87,6 @@ new Vue({
         appClient.getUser(address).then(function(d) {
           console.log("ACCOUNTS!!!",d);
         })
-        this.message = {
-          to: 'AddyToSend',
-          subject: 'MessageSubject',
-          body: 'MessageBody'
-        };
-
         this.isObservationEnabled = true;
       }
       catch (e) {
