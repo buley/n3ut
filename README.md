@@ -5,7 +5,7 @@ A blockchain-based mediation tool built on Echo and Vue.js, and based on [@m0t0k
 ## Requirements
 
 * Node.js
-* Yarn
+* Yarner 
 * Golang
 
 ## Install
